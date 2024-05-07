@@ -722,7 +722,7 @@ function checkIfLimited($bprocess_id, $bunit)
     $max = $data['max_'];
 
     if ($bunit >= $min && $bunit <= $max) {
-        return [true,];
+        return [true, null];
     } else {
         return [false, $min, $max];
     }
@@ -743,28 +743,24 @@ function deleteUser($user_id)
 }
 
 
-function canUserDonate($userId, $processId)
+function canUserDonate($userId, $processId, $bunit)
 {
     global $conn;
 
-    $donationLimitCheck = checkIfLimited($processId, $_POST['bunit']);
-    if (!$donationLimitCheck[0]) {
-        if ($donationLimitCheck[1] == $donationLimitCheck[2]) {
-            return [false, "Invalid unit! The required unit is {$donationLimitCheck[1]} mL"];
+    $checked_ = checkIfLimited($processId, $bunit);
+    if (!$checked_[0]) {
+        if ($checked_[1] == $checked_[2]) {
+            return [false, "Invalid unit! The required unit is {$checked_[1]} mL"];
         } else {
-            return [false, "Invalid unit! The unit should be between {$donationLimitCheck[1]} and {$donationLimitCheck[2]} mL"];
+            return [false, "Invalid unit! The unit should be between {$checked_[1]} and {$checked_[2]} mL"];
         }
     }
 
     $query = "SELECT donated_at FROM users WHERE user_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->execute([$userId]);
-    $lastDonationDate = $stmt->fetchColumn();
-
-    if (!$lastDonationDate) {
-        // First donation, can proceed
-        return [true, null];
-    }
+    $donated_at = $stmt->fetchColumn();
+    $date_checked_donate = checkDate2($donated_at);
 
     // Check interval since last donation
     $query = "SELECT interval_days FROM blood_processes WHERE process_id = ?";
@@ -772,13 +768,8 @@ function canUserDonate($userId, $processId)
     $stmt->execute([$processId]);
     $intervalDays = $stmt->fetchColumn();
 
-    $lastDonationDateTime = new DateTime($lastDonationDate);
-    $currentDateTime = new DateTime();
-    $interval = $lastDonationDateTime->diff($currentDateTime);
-
-    if ($interval->days < $intervalDays) {
-        $remainingDays = $intervalDays - $interval->days;
-        return [false, "You must wait {$remainingDays} more days until you can donate again."];
+    if ($date_checked_donate < $intervalDays && $donated_at != null) {
+        return [false, "You must wait " . ($intervalDays -  $date_checked_donate) . " more days until you can donate again."];
     }
 
     // Check if user has ongoing or pending donation appointments
@@ -789,9 +780,9 @@ function canUserDonate($userId, $processId)
                 AND statuses.status_type IN ('approved', 'pending')";
     $stmt = $conn->prepare($query);
     $stmt->execute([$userId]);
-    $ongoingDonationCount = $stmt->fetchColumn();
+    $appointment = $stmt->fetchColumn();
 
-    if ($ongoingDonationCount > 0) {
+    if ($appointment > 0) {
         return [false, 'Unable to donate, you already have a donation appointment in progress.'];
     }
 
@@ -809,9 +800,9 @@ function canUserReceive($userId)
                 AND statuses.status_type IN ('approved', 'pending')";
     $stmt = $conn->prepare($query);
     $stmt->execute([$userId]);
-    $ongoingRequestCount = $stmt->fetchColumn();
+    $appointment = $stmt->fetchColumn();
 
-    if ($ongoingRequestCount > 0) {
+    if ($appointment > 0) {
         return [false, 'Unable to receive, you already have a request appointment in progress.'];
     }
 

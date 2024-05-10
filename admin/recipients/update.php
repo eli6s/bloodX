@@ -51,11 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {    // Directory for image uploads
                 $isAdmin, $userId
             ]);
 
-            flash('success', 'Updated Successfully.');
+            flash('success', 'Updated successfully.');
             header('Location: index.php' . (isset($search) && $search != '' ? '?search=' . $search : ''));
             exit();
         } else {
-            flash('error', 'email or username already exists');
+            flash('error', 'Email or username already exists.');
             header("Location: " . $_SERVER['HTTP_REFERER']);
             exit();
         }

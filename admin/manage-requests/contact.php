@@ -3,7 +3,7 @@
 include '../../config.php';
 include '../../helpers/helpers.php';
 
-$pageTitle = "Send Mail";
+$pageTitle = "Send mail";
 ob_start();
 
 // Start the session if it's not already started

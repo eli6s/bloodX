@@ -129,12 +129,12 @@ if (!isset($_SESSION['USER']['username']) || !isAdmin($_SESSION['USER']['user_id
 
           swal({
             title: "Are you sure?",
-            text: "This action can not be undone. Do you want to continue?",
+            text: "This action cannot be undone. Do you want to continue?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Delete',
             buttons: true,
             dangerMode: true
           }).then((will) => {
@@ -189,8 +189,8 @@ if (!isset($_SESSION['USER']['username']) || !isAdmin($_SESSION['USER']['user_id
                     message: data.message
                   })
                   .then(function(response) {
-                    swal('Check your inbox.', {
-                      title: 'Successfully sent.',
+                    swal('Please check your inbox.', {
+                      title: 'Successfully sent',
                       icon: "success",
                     }).then(() => {
                       window.location.reload();
@@ -205,15 +205,15 @@ if (!isset($_SESSION['USER']['username']) || !isAdmin($_SESSION['USER']['user_id
                   });
 
               } else if (data.status === 'error') {
-                swal('this email is not registered.', {
-                  title: "Invalid email!",
+                swal('This email is not registered.', {
+                  title: "Invalid email",
                   icon: "error",
                 }).then(() => {
                   window.location.reload();
                 });
               } else {
-                swal('this email is not registered.', {
-                  title: "Invalid email!",
+                swal('This email is not registered.', {
+                  title: "Invalid email",
                   icon: "error",
                 }).then(() => {
                   window.location.reload();
@@ -255,8 +255,8 @@ if (!isset($_SESSION['USER']['username']) || !isAdmin($_SESSION['USER']['user_id
           let formated_appointment = formatAppointmentDate(app);
 
           if (validateAppointment(appointment) != true) {
-            swal('Appointment date must be in the future.', {
-              title: 'Invalid Date.',
+            swal('The appointment date must be in the future.', {
+              title: 'Invalid Date',
               icon: "error",
             });
           } else {
@@ -270,14 +270,14 @@ if (!isset($_SESSION['USER']['username']) || !isAdmin($_SESSION['USER']['user_id
               success: function(data) {
                 if (data.status === 'success') {
                   swal('The user has been notified regarding their appointment.', {
-                    title: 'Successfully sent.',
+                    title: 'Successfully sent',
                     icon: "success",
                   }).then(() => {
                     window.history.back();
                   });
                 } else {
-                  swal('something went wrong!', {
-                    title: "try again!",
+                  swal('Something went wrong!', {
+                    title: "Error",
                     icon: "error",
                   }).then(() => {
                     window.history.back();

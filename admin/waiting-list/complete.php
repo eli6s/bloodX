@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Check if the approving was successful
         $response = [
             'status' => 'success',
-            'message' => 'Appointment Completed successfully'
+            'message' => 'Appointment completed successfully!'
         ];
     } else {
         $response = ['status' => 'error'];

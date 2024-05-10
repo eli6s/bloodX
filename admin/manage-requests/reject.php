@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Check if the approving was successful
         $response = [
             'status' => 'success',
-            'message' => 'Appointment Rejected successfully'
+            'message' => 'The appointment has been rejected.'
         ];
     } else {
         $response = [

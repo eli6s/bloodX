@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (donateBlood($owner, $give)) {
                 flash('success', "<b>$owner</b> can give blood to <b>$give</b>");
             } else {
-                flash('error', "<b>$owner</b> can not give blood to <b>$give</b>");
+                flash('error', "<b>$owner</b> cannot give blood to <b>$give</b>");
             }
         }
     } elseif ($type == 0) {
@@ -69,9 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flash('error', 'All fields are required');
         } else {
             if (receiveBlood($owner, $receive)) {
-                flash('success', "<b>$owner</b> can receive blood to <b>$receive</b>");
+                flash('success', "<b>$owner</b> can receive blood from <b>$receive</b>");
             } else {
-                flash('error', "<b>$owner</b> can not receive blood to <b>$receive</b>");
+                flash('error', "<b>$owner</b> cannot receive blood from <b>$receive</b>");
             }
         }
     } else {

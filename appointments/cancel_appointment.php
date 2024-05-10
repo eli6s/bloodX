@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Check if the cancelation was successful
         $response = [
             'status' => 'success',
-            'message' => 'your appointment canceled successfully'
+            'message' => 'Your appointment has been cancelled successfully.'
         ];
     } else {
         $response = [

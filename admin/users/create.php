@@ -152,7 +152,7 @@ $diseases = fetchDiseases();
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-floating mb-3">
-                                        <label for="diseases">Diseases <code> (If No diseases unselect all )</code></label>
+                                        <label for="diseases">Diseases <code> (If no diseases, unselect all)</code></label>
                                         <select class="form-control selectric" name="diseases[]" id="Select2" multiple>
                                             <option value="" disabled>No Diseases</option>
                                             <?php foreach ($diseases as $d) : ?>

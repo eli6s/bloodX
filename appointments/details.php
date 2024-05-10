@@ -91,22 +91,23 @@ if (isAuthorized()) {
         </div>
     </div>
 </section>
+
 <!-- Modal Cancel appointment -->
 <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="cancelModalLabel">Cancel Appointment</h5>
+                <h5 class="modal-title" id="cancelModalLabel">Cancel appointment</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-0">
                 <div class="wsus__check_form ">
                     <form class="row w-100" action="cancel_appointment.php" method="POST">
                         <h3>
-                            Are you sure ?
+                            Cancel appointment?
                         </h3>
                         <h5 class="my-3">
-                            You want to cancel your appointment?
+                            Are you sure you want to cancel your appointment?
                         </h5>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary  rounded-pill" data-bs-dismiss="modal" aria-label="Close">

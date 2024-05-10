@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     unset($_SESSION['OLD_DATA']);
 
-    flash('success', 'Created Successfully.');
+    flash('success', 'Created successfully.');
     header('Location: index.php?page=1');
 } else {
     header('Location: index.php');

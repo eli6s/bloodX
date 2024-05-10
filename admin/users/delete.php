@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Check if the deletion was successful
         $response = [
             'status' => 'success',
-            'message' => 'The user along with their posts were deleted successfully'
+            'message' => 'The user along with their appointments were successfully deleted.'
         ];
     } else {
         $response = [

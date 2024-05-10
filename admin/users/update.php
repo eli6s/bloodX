@@ -54,13 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $isAdmin, $userId
         ]);
 
-        flash('success', 'Updated Successfully.');
+        flash('success', 'Updated successfully.');
         header('Location: index.php');
         exit();
     } else {
         // Redirect back if email or username already exists
         // with flash an error
-        flash('error', 'email or username already exists');
+        flash('error', 'Email or username already exists.');
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
     }

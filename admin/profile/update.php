@@ -63,12 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['USER']['profile_pic'] = $profile_pic;
         }
         // Set success flash message and redirect
-        flash('success', 'Updated Successfully.');
+        flash('success', 'Updated successfully.');
         header('Location: index.php');
         exit();
     } else {
         // Redirect back if email or username already exists
-        flash('error', 'email or username already exists');
+        flash('error', 'Email or username already exists.');
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
     }

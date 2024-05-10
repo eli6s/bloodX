@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Create new donation appointment
             createNewAppointment($id, $bprocess, $type, $bunit, $case_details);
-            flash('success', 'You have requested a donation appointment.');
+            flash('success', 'You have requested a blood donation appointment. You will be notified once it gets approved.');
             redirectBack();
         } else {
             // Check if user can receive based on previous appointments
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Create new request appointment
             createNewAppointment($id, $bprocess, $type, $bunit, $case_details);
-            flash('success', 'You have requested an appointment to receive blood. We will email you with details when it gets approved.');
+            flash('success', 'You have requested a blood receival appointment. You will be notified once it gets approved.');
             redirectBack();
         }
     } catch (Exception $e) {

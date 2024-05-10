@@ -22,17 +22,17 @@ if (isset($_GET['token'])) {
             // Check if the currentTimestamp is greater than expiryTimestamp
             if ($currentTimestamp > $expiryTimestamp) {
                 // Token expired, handle accordingly
-                flash('error', 'Token has expired');
+                flash('error', 'The reset token has expired.');
                 header('Location: ' . asset('index.php'));
                 exit();
             }
         } else {
-            flash('error', 'Token has expired');
+            flash('error', 'The reset token has expired.');
             header('Location: ' . asset('index.php'));
             exit();
         }
     } catch (PDOException $e) {
-        flash('error', 'something went wrong try again.');
+        flash('error', 'something went wrong. Please try again later.');
         header('Location: ' . asset('index.php'));
         exit();
     }
@@ -71,7 +71,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
-                                    <button class="common_btn" type="submit">Reset Password</button>
+                                    <button class="common_btn" type="submit">Reset password</button>
                                 </div>
                             </div>
                         </div>

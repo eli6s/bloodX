@@ -160,6 +160,7 @@ function flash($status, $message)
     ];
     return NULL;
 }
+
 function isAdmin($id)
 {
     global $conn;
@@ -223,7 +224,6 @@ function diffHumans($date)
     }
     return $humanDiff;
 }
-
 
 function getCities($city_selected = NULL)
 {

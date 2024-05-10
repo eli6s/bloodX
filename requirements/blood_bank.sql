@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `name`, `email`, `passwrd`, `phone_number`, `gender`, `birthday`, `profile_pic`, `status_id`, `blood_group_id`, `is_admin`, `donated_at`, `created_at`, `updated_at`, `reset_token`, `expiry`, `city`) VALUES
-(1, 'admin', 'Mohammad Rajha', 'mohammadrajha2@gmail.com', '$2y$10$27wyB0kHIpDx3vo3yd5RduL6jog7/jnsaRKKScOGLOGqzGZuh9I5m', '76672537', 'male', '2005-05-18 21:00:00', 'default.png', 3, 1, 1, NULL, '2024-05-07 09:39:20', '2024-05-07 09:39:38', NULL, NULL, 'Beirut'),
+(1, 'admin', 'admin', 'admin@gmail.com', '$2y$10$27wyB0kHIpDx3vo3yd5RduL6jog7/jnsaRKKScOGLOGqzGZuh9I5m', '0000000', 'male', '2005-05-18 21:00:00', 'default.png', 3, 1, 1, NULL, '2024-05-07 09:39:20', '2024-05-07 09:39:38', NULL, NULL, 'Beirut'),
 (2, 'user', 'User', 'user@gmail.com', '$2y$10$QIZti8pWh1BzmZvbm2S7t.WC/WRG/dLR0MOLMCG2pe.IKM1/WqU6G', '0000000', 'male', '2005-12-18 22:00:00', 'default.png', 3, 5, 0, NULL, '2024-05-07 09:40:44', '2024-05-07 09:40:44', NULL, NULL, 'Beirut');
 
 -- --------------------------------------------------------

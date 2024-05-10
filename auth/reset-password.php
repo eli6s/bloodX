@@ -18,11 +18,11 @@ if ($new_password === $confirm_passwrod) {
     $stmt = $conn->prepare($query);
     $stmt->execute([$hashedPassword,  $_POST['email']]);
 
-    flash('success', 'Password Changed Successfully');
+    flash('success', 'Password changed successfully.');
     header("Location: " . asset('auth/login.php'));
     exit();
 } else {
-    flash('error', 'Password mismatch try again.!');
+    flash('error', 'Password mismatch! Please try again.');
     header("Location: {$_SERVER['HTTP_REFERER']}");
     exit();
 }

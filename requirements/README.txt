@@ -1,4 +1,4 @@
-# 
+# SETUP INSTRUCTIONS
 # 1. Create a database named "blood_bank".
 # 2. Import the SQL file "blood_bank.sql".
 # 3. Make sure the folder is named "bloodX".

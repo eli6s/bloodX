@@ -53,7 +53,7 @@ try {
     }
 
     if (!validate_phone($phone_number)) {
-        flash('error', 'Invalid phone number, Must be at least 8 digits!');
+        flash('error', 'Invalid phone number. Must be at least 8 digits!');
         redirectBack();
     }
     // Hash the password

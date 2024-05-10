@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'name' => $userData['name'],
                     'email' => $_POST['email'],
                     'subject' => 'Reset Password',
-                    'message' => "Click the following link to reset your password: $reset_link . this link will expire in an hour."
+                    'message' => "Click the following link to reset your password: $reset_link . This link will expire in one hour."
                 ];
             } else {
                 $response = ['status' => 'error', 'msg' => 'Invalid E-mail.'];

@@ -38,20 +38,17 @@ try {
             $updateStmt = $conn->prepare($query);
             $updateStmt->execute([$new_hashed_password, $user_id]);
 
-            flash('success', 'Password Changed Successfully.');
-            header("Location: {$_SERVER['HTTP_REFERER']}");
-            exit();
+            flash('success', 'Password changed successfully.');
+            redirectBack();
         } else {
             // flash that Password doesnot match 
-            flash('error', 'Password Unmatched.');
-            header("Location: {$_SERVER['HTTP_REFERER']}");
-            exit();
+            flash('error', 'Password does not match.');
+            redirectBack();
         }
     } else {
         // flash Password is incorrect
-        flash('error', 'Invalid Password.');
-        header("Location: {$_SERVER['HTTP_REFERER']}");
-        exit();
+        flash('error', 'Invalid password.');
+        redirectBack();
     }
 } catch (Exception $e) {
     header("Location: " . asset('404.php'));

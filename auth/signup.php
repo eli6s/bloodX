@@ -4,6 +4,10 @@ include '../config.php';
 include '../helpers/helpers.php';
 global $conn;
 
+function validate_phone($phone_number)
+{
+    return preg_match("/^[0-9 ]*$/", $phone_number);
+}
 // Start the session if it's not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -40,6 +44,18 @@ try {
         header("Location: {$_SERVER['HTTP_REFERER']}");
         exit();
     }
+
+    // Validate age for donation
+    $age = ceil(checkDate2($birthday));
+    if ($age <= 1) {
+        flash('error', 'You cannot be born in the future!');
+        redirectBack();
+    }
+
+    if (!validate_phone($phone_number)) {
+        flash('error', 'Invalid phone number, Must be at least 8 digits!');
+        redirectBack();
+    }
     // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
@@ -50,8 +66,7 @@ try {
     // If email or username already exist, redirect back with error message
     if ($emailExists || $usernameExists) {
         flash('error', 'Email or username already exists.');
-        header("Location: {$_SERVER['HTTP_REFERER']}");
-        exit();
+        redirectBack();
     }
 
     $data = [
@@ -88,6 +103,5 @@ try {
     exit();
 } catch (PDOException $e) {
     flash('error', 'All fields are required.');
-    header("Location: {$_SERVER['HTTP_REFERER']}");
-    exit();
+    redirectBack();
 }

@@ -46,14 +46,14 @@ $images = isset($_SESSION['BANNER_SLIDER_IMAGES']) ? $_SESSION['BANNER_SLIDER_IM
 
                                             <a href="<?= asset('actions/index.php') ?>">
                                                 <button class="btn btn-sm text-white bg-danger d-lg-none d-block">
-                                                    Request an Appointment
+                                                    Request an appointment
                                                 </button>
                                             </a>
                                         <?php else : ?>
                                             <a href="<?= asset('auth/login.php') ?>">
 
                                                 <button class="btn btn-sm text-white bg-danger d-lg-none d-block">
-                                                    Request an Appointment
+                                                    Request an appointment
                                                 </button>
                                             </a>
                                         <?php endif;    ?>

@@ -35,9 +35,6 @@ $diseases = fetchDiseases();
     }
 </style>
 
-<!--============================
-       LOGIN/REGISTER PAGE START
-    ==============================-->
 <section id="wsus__login_register">
     <div class="container">
         <div class="row">
@@ -212,9 +209,6 @@ $diseases = fetchDiseases();
     });
 </script>
 
-<!--============================
-       LOGIN/REGISTER PAGE END
-    ==============================-->
 <?php
 $content = ob_get_clean();
 include('../layout.php');

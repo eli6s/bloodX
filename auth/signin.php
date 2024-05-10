@@ -35,8 +35,7 @@ try {
         if (strtolower($userData['status_type']) == 'suspended') {
             // flash an error , suspended account
             flash('error', 'Suspended account.');
-            header("Location: {$_SERVER['HTTP_REFERER']}");
-            exit();
+            redirectBack();
         }
 
         $userId = $userData['user_id'];
@@ -58,14 +57,12 @@ try {
         } else {
             // flash Password is incorrect
             flash('error', 'Incorrect password.');
-            header("Location: {$_SERVER['HTTP_REFERER']}");
-            exit();
+            redirectBack();
         }
     } else {
         // flash a message that username or email does not exist.
         flash('error', 'Email or username does not exist.');
-        header("Location: {$_SERVER['HTTP_REFERER']}");
-        exit();
+        redirectBack();
     }
 } catch (Exception $e) {
     header("Location: " . asset('404.php'));

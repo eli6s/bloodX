@@ -90,24 +90,15 @@ $_SESSION['PER_PAGE'] = 5;
   <script src="<?= asset('assets/js/venobox.min.js'); ?>"></script>
   <!--classycountdown js-->
   <script src="<?= asset('assets/js/jquery.classycountdown.js'); ?>"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
+  <script src="<?= asset('assets/js/wow.js'); ?>"></script>
   <!--main/custom js-->
   <script src="<?= asset('assets/js/main.js'); ?>"></script>
   <script src="<?= asset('assets/js/virtual-select.min.js'); ?>"></script>
   <script src="<?= asset('assets/js/toastr.min.js'); ?>"></script>
+  <script src="<?= asset('assets/js/init-virtual-select.js') ?>"></script>
 
   <script src="<?= asset('admin/assets/js/email-js.js') ?>"></script>
   <script src="<?= asset('admin/assets/js/sweet-alert.js') ?>"></script>
-  <script>
-    VirtualSelect.init({
-      ele: '#Select'
-    });
-    VirtualSelect.init({
-      ele: '#Select2',
-      popupDropboxBreakpoint: '3000px',
-    });
-  </script>
 
   <script>
     // Get the current URL &&  Remove empty query parameters
@@ -130,12 +121,12 @@ $_SESSION['PER_PAGE'] = 5;
 
         swal({
           title: "Are you sure?",
-          text: "This action can not be undone. Do you want to continue?",
+          text: "This action cannot be undone. Do you want to continue?",
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!',
+          confirmButtonText: 'Delete',
           buttons: true,
           dangerMode: true
         }).then((will) => {
@@ -176,8 +167,8 @@ $_SESSION['PER_PAGE'] = 5;
         let url = $(this).attr('href');
 
         swal({
-            title: "Are You Sure?",
-            text: "Do you want to Logout?",
+            title: "Logout",
+            text: "Are you sure you want to logout?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -195,13 +186,13 @@ $_SESSION['PER_PAGE'] = 5;
         let URL = $(this).attr('href');
         let id = $(this).data('id');
         swal({
-          title: "Are you sure?",
-          text: "You want to cancel your appointment?",
+          title: "Cancel appointment",
+          text: "Are you sure you want to cancel your appointment?",
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#fff',
-          confirmButtonText: 'Yes, Cancel it!',
+          confirmButtonText: 'Cancel',
           buttons: true,
           dangerMode: true
         }).then((will) => {
@@ -215,7 +206,7 @@ $_SESSION['PER_PAGE'] = 5;
               success: function(data) {
                 if (data.status === 'success') {
                   swal(data.message, {
-                    title: 'Canceled.',
+                    title: 'Cancelled.',
                     icon: "success",
                   }).then(() => {
                     window.location.reload();
@@ -256,15 +247,15 @@ $_SESSION['PER_PAGE'] = 5;
                   message: data.message
                 })
                 .then(function(response) {
-                  swal('Check your inbox.', {
-                    title: 'Successfully sent.',
+                  swal('Please check your inbox.', {
+                    title: 'Successfully sent',
                     icon: "success",
                   }).then(() => {
                     window.location.reload();
                   });
                 }, function(error) {
                   swal(data.message, {
-                    title: 'Failed to send email. Please try again later.',
+                    title: 'Failed',
                     icon: "warning",
                   }).then(() => {
                     window.location.reload();
@@ -272,15 +263,15 @@ $_SESSION['PER_PAGE'] = 5;
                 });
 
             } else if (data.status === 'error') {
-              swal('this email is not registered.', {
-                title: "Invalid email!",
+              swal('This email is not registered.', {
+                title: "Invalid email",
                 icon: "error",
               }).then(() => {
                 window.location.reload();
               });
             } else {
-              swal('this email is not registered.', {
-                title: "Invalid email!",
+              swal('This email is not registered.', {
+                title: "Invalid email",
                 icon: "error",
               }).then(() => {
                 window.location.reload();
@@ -306,8 +297,8 @@ $_SESSION['PER_PAGE'] = 5;
           subject: subject,
           message: message
         }).then(function(response) {
-          swal('your email has been sent.', {
-            title: 'Successfully sent.',
+          swal('Please check your inbox.', {
+            title: 'Successfully sent',
             icon: "success",
           }).then(() => {
             window.location.reload();

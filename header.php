@@ -96,14 +96,14 @@ $appointments = fetchUserAppointments();
       <?php else : ?>
         <li>
           <p class="text-center">
-            No Recent Appointments
+            No recent appointments
           </p>
         </li>
       <?php endif; ?>
     </ul>
     <h5> </h5>
     <div class="wsus__minicart_btn_area">
-      <a class="common_btn" href="<?= asset('appointments/details.php') ?>">view details</a>
+      <a class="common_btn" href="<?= asset('appointments/details.php') ?>">View details</a>
     </div>
   </div>
 </header>

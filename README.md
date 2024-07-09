@@ -1,5 +1,6 @@
 # bloodX
-bloodX is a fully functioning blood bank webapp developed by a classmate and I, which served as our final project for BT3. You may either refer to page 27 in the [report](report.pdf) or below for a comprehensive list regarding the setup instructions.
+bloodX is a fully functioning blood bank webapp developed by a classmate and I, which served as our final project for BT3. The comprehensive list of setup 
+ instructions below can also be found on page 27 in the [report](report.pdf).
 
 ## prerequisites
 - first here

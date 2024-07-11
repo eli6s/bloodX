@@ -3,10 +3,8 @@ bloodX is a fully functioning blood bank webapp developed by a classmate and I, 
  instructions below can also be found on page 27 in the [report](report.pdf).
 
 ## prerequisites
-- first here
-- second here
-- third here
-- etc..
+- WampServer 3.3.x
+- C++ Redestributable (2005 - present)
 
 ## installation instructions
 ```

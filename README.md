@@ -8,29 +8,35 @@ Developed by a classmate and I, bloodX is a fully functioning blood bank webapp,
 
 ## Installation instructions
 1. Download and install WampServer on your machine:
+   \
    https://www.wampserver.com/en/download-wampserver-64bits/
 
-2. Download and install all versions of the C++ Redistributable:
+3. Download and install all versions of the C++ Redistributable:
+   \
    https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
 
-3. Clone one of the repositories:
-```
-git clone https://github.com/MohammadRajha-SD/bloodX.git
-git clone https://github.com/eli6s/bloodX.git
-```
+4. Clone one of the repositories:
+   ```
+   git clone https://github.com/MohammadRajha-SD/bloodX.git
+   git clone https://github.com/eli6s/bloodX.git
+   ```
 
 ## Setup instructions
 1. Open up your web browser and navigate to phpMyAdmin:
+   \
    http://localhost/phpmyadmin/
 
-2. Create a database called blood_bank:
+3. Create a database called blood_bank:
    ```sql
    CREATE DATABASE IF NOT EXISTS blood_bank;
    ```
 
-3. You're all set! start using bloodX:
+4. You're all set! start using bloodX:
+   \
    http://localhost/bloodX
 
-5. To login as an admin:
+6. To login as an admin:
+   \
    username -> `admin`
+   \
    password -> `admin12`

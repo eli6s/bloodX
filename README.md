@@ -1,5 +1,5 @@
 # bloodX
-Developed by a classmate and I, bloodX is a fully functioning blood bank webapp, which served as our final project for BT3.
+Developed by a classmate and I, bloodX is a fully functioning blood bank webapp, which served as our graduation project for the Technical Baccalaureate in Software Development.
 ## Prerequisites
 - WampServer 3.3.x
 - C++ Redestributable (2005 - present)

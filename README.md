@@ -1,5 +1,4 @@
 # bloodX
-# mim-museum
 Developed by a classmate and I, bloodX is a full-stack web application connecting blood donors with patients, featuring user registration, blood inventory management, and request matching, which served as our graduation project for the Baccalauréat Technique (BT) Degree.
 ## Prerequisites
 - WampServer 3.3.x
